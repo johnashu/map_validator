@@ -10,15 +10,31 @@
 apt update && apt upgrade -y
 apt install git
 apt install make
-apt install golang
 
-Adjust path variable for GO
+# Install Go Lang
+
+- download
+wget https://golang.org/dl/go1.18.5.linux-amd64.tar.gz
+
+- unzip
+tar -xzf go1.18.5.linux-amd64.tar.gz -C /usr/local/
+
+- Adjust path variable for GO
 
 sudo nano /etc/profile
 
-Add the following path at the end of the file.
+- Add the following path at the end of the file.
 
 export PATH=$PATH:/usr/local/go/bin
+
+- To save changes, press ‘Ctrl+O’ and then exit from this file by pressing ‘Ctrl+X’.
+
+- Activate the PATH of the environment variable by executing the below-mentioned command:
+
+source /etc/profile
+
+- Export GoPAth
+export GOPATH=$HOME
 
 # Clone Repo
 
