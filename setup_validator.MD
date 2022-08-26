@@ -9,7 +9,12 @@
 # Update & Install Dependencies
 apt update && apt upgrade -y
 apt install git
+apt install python3
+apt install git
 apt install make
+apt install wget
+apt install nano
+apt install gcc
 
 # Install Go Lang
 
@@ -53,9 +58,110 @@ make marker
 
 - add binaries to PAth
 
-export PATH=$PATH:/atlas/build/bin
+export PATH=$PATH:/atlas/build/bin/marker
+
+
+# Create a new MAP wallet for the Validator
+
+Option 2 in the tool and follow the instructions if not already addded to the .env file
+
+```bash
+        /home/atlas/build/bin/atlas --datadir ./node account new
+
+```
+
+ Your new key was generated
+
+ Address:   0x12abcd5F1c1234567890abcdefad1234
+ PublicKey:   0x01234567890abcdef196c311b9a9720bacac05e56f74cc712a338071ee71e331ba4608543471f01694b5c3922018634d308d311b4f5d4245d6e06e115a1df0418a3
+ BLS Public key:   0x1234567890abcdef196c311b9a9720bacac05e56f7e234234324212e37dca05525681186b4477011a1cdbcdb56b11a96a30ae921f7778ef705982728c2e0829b005c7189c1351ea57ef208fa5862022aeb48a46e72fbddaeff79e1e44d20d176ab0bca7fb57b95d31d065d7d24c921f603786119b1de89d610788a1f9ccf2
+ BLS G1 Public key:   0x1234567890abcdef196c311b9a9720bacac05e56f77ee7cfe1a737252b8a2bd98219d97bf534ec633e49cbc90f870fd1cdc7832310eff043f
+ BLSProofOfPossession:   0x1234567890abcdef196c311b9a9720bacac05e56f7aaae7aaecc9f842a5b1729884080f3b5119ef7b70b9
+ Path of the secret key file: node/keystore/UTC--2022-08-26T20-24-28.703330899Z--1234567890abcdef123457
+
+
+Save this information and keep it safe. 
+
+This address will also be known as the 'admin'address
+
+Save a copy of the Secret Key File, this is your seed phrase / private key, you cannot lose this!
+
+You can also use this file to import your wallet into Metamask and other hot wallets.
+
+Import Wallet into Metamask using the Keystore or using the option in the menu (22) to obtain the Private Key.
+
+# Buy MAP 
+
+Map is available on several chains and can be purchased with the contract addresses provided.
+
+Ethereum - Uniswap / Kucoin
+0x9E976F211daea0D652912AB99b0Dc21a7fD728e4
+​
+BNB Chain - Pancake Swap
+0x8105ECe4ce08B6B6449539A5db23e23b973DfA8f
+
+Polygon - Quickswap
+0xBAbceE78586d3e9E80E0d69601A17f983663Ba6a
+
+# Bridge MAP to MAP protocol
+
+Goto the MAP bridge and send the MAP from Eth / Matic / BNB -> MAP Address created above.
+
+https://bridge.maplabs.io/#/home?sourceNetwork=ETH&destNetwork=MAP&ts=1661547728846
+
+1. Select the chain from and the amount of map to bridge
+2. Approve contract
+3. bridge assets 
+4. Add MAP protocol to Metamask by changing the 'From' Protocol to 'MAP'.  This will trigger auto adding the network to Metamask
+
+You should now be able to see you Map in Metamask and also by selecting 'Get Balance' (20) in the Tool.
 
 # Create account
+
+Next we need to create an account for the Vaidator.
+
+In this step, you need to transfer your identification information to the corresponding management contract, which will manage your account, keys, and metadata.
+
+The purpose of this step is keep your locked MAP more secure by authorizing alternative keys to be used for signing attestations、voting、validating. By doing so, you can continue to participate in the protocol while keeping the key with access to your locked MAP in storage.
+
+```bash
+/home/atlas/build/bin/marker createAccount --namePrefix validator --rpcaddr https://poc3-rpc.maplabs.io --password "password" --keystore node/keystore/UTC--2022-08-26T20-24-28.703330899Z--4f35285f1c387394197a0cdea16d3a0eaa2c58f5
+```
+
+Or choose Option 3 from the menu and follow the instructions.
+
+The transaction will process and you will get a success message at the end.
+
+```bash
+>>> Create account                           func=createAccount address=0x4F35285F1c387394197A0cdeA16D3a0eAA2c58F5 name=validator
+...
+>>> Transaction Success                      func=getResult               number=1,046,463
+```
+
+# Lock Map in the Validator 
+
+To be eligible for Consensus, it is required to have 1,000,000 locked in the validator.
+
+You can do this all in 1 go or bit by bit.  
+
+run the command or choose option 4 in the tool.
+
+```bash
+/home/atlas/build/bin/marker lockedMAP --lockedNum 100 --rpcaddr https://poc3-rpc.maplabs.io --password "password" --keystore node/keystore/UTC--2022-08-26T20-24-28.703330899Z--4f35285f1c387394197a0cdea16d3a0eaa2c58f5
+
+``` 
+
+```bash
+=== Lock  gold ===
+Lock  gold                               amount=100000000000000000000
+...
+Transaction Success                      func=getResult               number=1,046,677
+
+``` 
+
+
+
+# #################### NOTES #############################
 
 ./marker createAccount --rpcaddr 127.0.0.1 --rpcport 7445 --keystore /Users/alex/data/atlas-1/keystore/UTC--2022-06-14T05-46-17.312327000Z--73bc690093b9dd0400c91886184a60cc127b2c33 --password "" --namePrefix "validator"
 
