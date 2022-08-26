@@ -78,6 +78,9 @@ Option 2 in the tool and follow the instructions if not already addded to the .e
 
 ```
 
+```bash
+>>>
+
  Your new key was generated
 
  Address:   0x12abcd5F1c1234567890abcdefad1234
@@ -86,7 +89,7 @@ Option 2 in the tool and follow the instructions if not already addded to the .e
  BLS G1 Public key:   0x1234567890abcdef196c311b9a9720bacac05e56f77ee7cfe1a737252b8a2bd98219d97bf534ec633e49cbc90f870fd1cdc7832310eff043f
  BLSProofOfPossession:   0x1234567890abcdef196c311b9a9720bacac05e56f7aaae7aaecc9f842a5b1729884080f3b5119ef7b70b9
  Path of the secret key file: node/keystore/UTC--2022-08-26T20-24-28.703330899Z--1234567890abcdef123457
-
+```
 
 Save this information and keep it safe. 
 
@@ -102,20 +105,20 @@ Import Wallet into Metamask using the Keystore or using the option in the menu (
 
 Map is available on several chains and can be purchased with the contract addresses provided.
 
-Ethereum - Uniswap / Kucoin
-0x9E976F211daea0D652912AB99b0Dc21a7fD728e4
+* Ethereum - Uniswap / Kucoin
+> 0x9E976F211daea0D652912AB99b0Dc21a7fD728e4
 ​
-BNB Chain - Pancake Swap
-0x8105ECe4ce08B6B6449539A5db23e23b973DfA8f
+* BNB Chain - Pancake Swap
+> 0x8105ECe4ce08B6B6449539A5db23e23b973DfA8f
 
-Polygon - Quickswap
-0xBAbceE78586d3e9E80E0d69601A17f983663Ba6a
+* Polygon - Quickswap
+> 0xBAbceE78586d3e9E80E0d69601A17f983663Ba6a
 
 # Bridge MAP to MAP protocol
 
 Goto the MAP bridge and send the MAP from Eth / Matic / BNB -> MAP Address created above.
 
-https://bridge.maplabs.io/#/home?sourceNetwork=ETH&destNetwork=MAP&ts=1661547728846
+> https://bridge.maplabs.io/#/home?sourceNetwork=ETH&destNetwork=MAP&ts=1661547728846
 
 1. Select the chain from and the amount of map to bridge
 2. Approve contract
