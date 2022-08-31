@@ -6,20 +6,20 @@ usermod -aG sudo maffaz
 
 su - maffaz 
 
-sudo adduser admin
+sudo adduser maffaz
 
-sudo usermod -aG ssh admin
+sudo usermod -aG ssh maffaz
 
-sudo mkdir -p "/home/admin/.ssh"
-sudo chmod 0700 "/home/admin/.ssh"
-sudo chown "admin:admin" "/home/admin/.ssh"
+sudo mkdir -p "/home/maffaz/.ssh"
+sudo chmod 0700 "/home/maffaz/.ssh"
+sudo chown "maffaz:maffaz" "/home/maffaz/.ssh"
 
 ```
 
-Add the SSH public key to your admin. This next command will open up a blank text editor. Here you will copy/paste the key starting with “ssh-rsa….”
+Add the SSH public key to your maffaz. This next command will open up a blank text editor. Here you will copy/paste the key starting with “ssh-rsa….”
 
 ```bash
-sudo nano "/home/admin/.ssh/authorized_keys"
+sudo nano "/home/maffaz/.ssh/authorized_keys"
 ```
 
 > Paste Public Key
@@ -29,9 +29,9 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAilecANtfLlX2bjpSaUYh4DEh/Rv1a3rwPUNtZAWA1eML
 
 # Set permissions
 ```bash
-sudo ls "/home/admin/.ssh" -l
-sudo chown "admin:admin" "/home/admin/.ssh/authorized_keys"
-sudo chmod 0600 "/home/admin/.ssh/authorized_keys"
+sudo ls "/home/maffaz/.ssh" -l
+sudo chown "maffaz:maffaz" "/home/maffaz/.ssh/authorized_keys"
+sudo chmod 0600 "/home/maffaz/.ssh/authorized_keys"
 ```
 
 # Edit the SSH settings.
