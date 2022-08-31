@@ -5,6 +5,7 @@
 - git
 - Go (version 1.14 or later)
 - C compiler
+- Python (optional to use the tool)
 
 # Update & Install Dependencies
 
@@ -12,38 +13,40 @@
 apt update && apt upgrade -y
 apt install git
 apt install python3
-apt install git
-apt install make
-apt install wget
-apt install nano
 apt install gcc
+apt install make
 ``` 
 
 # Install Go Lang
 
 - download
-> wget https://golang.org/dl/go1.18.5.linux-amd64.tar.gz
+> curl -OL https://go.dev/dl/go1.19.linux-amd64.tar.gz
 
 - unzip
-> tar -xzf go1.18.5.linux-amd64.tar.gz -C /usr/local/
+> tar -C /usr/local -xvf go1.19.linux-amd64.tar.gz
+
+- remove tar
+> rm go1.19.linux-amd64.tar.gz
 
 - Adjust path variable for GO
 
-> sudo nano /etc/profile
+> nano ~/.profile
 
 - Add the following paths at the end of the file.
 
 ```bash
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/atlas/build/bin
-export GOPATH=$HOME
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/atlas
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
 ```
 
 - To save changes, press ‘Ctrl+O’ and then exit from this file by pressing ‘Ctrl+X’.
 
 - Activate the PATH of the environment variable by executing the below-mentioned command:
 
-`source /etc/profile`
+`source ~/.profile`
 
 - Export GoPAth
 export GOPATH=$HOME
