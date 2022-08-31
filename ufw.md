@@ -32,7 +32,7 @@ Description=Uncomplicated firewall
 Documentation=man:ufw(8)
 DefaultDependencies=no
 After=network.target
-Before=mapFullNode.service
+Before=suiFullNode.service
 
 [Service]
 Type=oneshot
