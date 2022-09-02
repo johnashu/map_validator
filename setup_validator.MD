@@ -58,7 +58,9 @@ cd <DIR>
 git clone https://github.com/mapprotocol/atlas.git && cd atlas
 ```
 
-TestNet Branch = main_test_07_08
+TestNet Branch:
+
+git pull main_test_07_08
 
 # Compile 
 
