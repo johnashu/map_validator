@@ -177,7 +177,11 @@ Transaction Success                      func=getResult               number=1,0
 
 ``` 
 
+# Chaeck Sync
 
+/home/maffaz/atlas/build/bin/atlas attach /home/maffaz/node/atlas.ipc
+
+eth.blockNumber
 
 # #################### NOTES #############################
 
