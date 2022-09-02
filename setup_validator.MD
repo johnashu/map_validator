@@ -58,6 +58,8 @@ cd <DIR>
 git clone https://github.com/mapprotocol/atlas.git && cd atlas
 ```
 
+TestNet Branch = main_test_07_08
+
 # Compile 
 
 ```bash
@@ -139,7 +141,7 @@ In this step, you need to transfer your identification information to the corres
 The purpose of this step is keep your locked MAP more secure by authorizing alternative keys to be used for signing attestations、voting、validating. By doing so, you can continue to participate in the protocol while keeping the key with access to your locked MAP in storage.
 
 ```bash
-/home/atlas/build/bin/marker createAccount --namePrefix validator --rpcaddr https://poc3-rpc.maplabs.io --password "password" --keystore node/keystore/UTC--2022-08-26T20-24-28.703330899Z--4f35285f1c387394197a0cdea16d3a0eaa2c58f5
+/home/atlas/build/bin/marker createAccount --name validator --rpcaddr https://poc3-rpc.maplabs.io --password "password" --keystore node/keystore/UTC--2022-08-26T20-24-28.703330899Z--4f35285f1c387394197a0cdea16d3a0eaa2c58f5
 ```
 
 Or choose Option 3 from the menu and follow the instructions.
@@ -153,7 +155,7 @@ The transaction will process and you will get a success message at the end.
 ```
 
 # Lock Map in the Validator 
-
+ 
 To be eligible for Consensus, it is required to have 1,000,000 locked in the validator.
 
 You can do this all in 1 go or bit by bit.  
@@ -177,7 +179,7 @@ Transaction Success                      func=getResult               number=1,0
 
 # #################### NOTES #############################
 
-./marker createAccount --rpcaddr 127.0.0.1 --rpcport 7445 --keystore /Users/alex/data/atlas-1/keystore/UTC--2022-06-14T05-46-17.312327000Z--73bc690093b9dd0400c91886184a60cc127b2c33 --password "" --namePrefix "validator"
+./marker createAccount --rpcaddr 127.0.0.1 --rpcport 7445 --keystore /Users/alex/data/atlas-1/keystore/UTC--2022-06-14T05-46-17.312327000Z--73bc690093b9dd0400c91886184a60cc127b2c33 --password "" --name "validator"
 
 # Lock MAP in Validator - Stake
 ./marker lockedMAP --rpcaddr 127.0.0.1 --rpcport 7445 --keystore /Users/alex/data/atlas-1/keystore/UTC--2022-06-14T05-46-17.312327000Z--73bc690093b9dd0400c91886184a60cc127b2c33 --password "" --lockedNum 1000000
@@ -200,7 +202,7 @@ verify whether it has become a validator.
 We can use our validator account to vote for ourselves, or we can let other validators or voters vote for ourselves. Below we will create a voter account and vote for our validator
 
 # Create account
-./marker createAccount --rpcaddr 127.0.0.1 --rpcport 7445 --keystore /Users/alex/data/atlas-1/keystore/UTC--2022-06-14T05-47-17.091118000Z--19c560de95c222ac4b0ad3093d66ef1fe75640f4 --password "" --namePrefix "voter"
+./marker createAccount --rpcaddr 127.0.0.1 --rpcport 7445 --keystore /Users/alex/data/atlas-1/keystore/UTC--2022-06-14T05-47-17.091118000Z--19c560de95c222ac4b0ad3093d66ef1fe75640f4 --password "" --name "voter"
 
 
 # Locked MAP
